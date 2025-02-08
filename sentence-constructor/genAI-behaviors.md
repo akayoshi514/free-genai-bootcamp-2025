@@ -1,8 +1,10 @@
-# Microsoft Copilot
-
 # HuggingChat
+
 ## First prompt 
-It doesn't answer the prompt so I abandonned it.
+It doesn't answer the prompt so I abandon it.
+
+
+# Microsoft Copilot
 
 ## First prompt 
 ### Vocabulary Table section
@@ -22,6 +24,23 @@ Bad: give extra words (preposition)
 Good: gives the two sentences on separate lines
 ### Clues and Considerations section
 No change from prompt 1
+
+## Third prompt 
+### Vocabulary Table section
+Good: respect the format, prepositon are not there
+### Sentence Structure section
+Good: give the two sentence on separate lines
+### Clues and Considerations section
+Bad: Give the example in the prompt
+
+## Fourth prompt 
+### Vocabulary Table section
+No change from prompt 3
+### Sentence Structure section
+No change from prompt 3
+### Clues and Considerations section
+Good: better advice with a different sentence
+
 
 # Google Gemini 
 
@@ -44,6 +63,23 @@ Bad: give the english sentences on a separate line before the sentence structure
 ### Clues and Considerations section
 No change from prompt 1
 
+## Third prompt 
+### Vocabulary Table section
+Good: respect the format, prepositon are not there
+### Sentence Structure section
+Good: give the two sentence on separate lines
+### Clues and Considerations section
+Bad: Give the example in the prompt
+
+## Fourth prompt 
+### Vocabulary Table section
+No change from prompt 3
+### Sentence Structure section
+No change from prompt 3
+### Clues and Considerations section
+Good: give another good advice
+Bad: give 2 clues of the examples
+
 
 # Le chat - Mistral
 
@@ -65,3 +101,21 @@ Good: give the two sentences on separate lines
 ### Clues and Considerations section
 Bad: Give only basic clues
 
+## Third prompt 
+### Vocabulary Table section
+Good: respect the format, prepositon are not there
+### Sentence Structure section
+Good: give the two sentence on separate lines
+### Clues and Considerations section
+Bad: Give the example in the prompt
+
+## Fourth prompt 
+### Vocabulary Table section
+No change from prompt 3
+### Sentence Structure section
+No change from prompt 3
+### Clues and Considerations section
+Good: give advice as asked
+Bad: advices are sentence but seems too basic
+
+I abandon it at this step due to basic clues
