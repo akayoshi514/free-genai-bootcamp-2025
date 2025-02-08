@@ -19,6 +19,5 @@ There is a concerned of copyrighted materials, so we must purchase and supply ma
 
 ## Considerations
 
-We're considering using IBM Granite because its a truley open-source model with training data that is traceable so we can avoid any copyright issues and we are able to know what is going on in the model.
+We're open to decide later wich model is more adaptable to our uses cases. The preferred model should be an open-source model with training data that is traceable so we can avoid any copyright issues and we are able to know what is going on in the model. For example the model [ibm-granite](https://huggingface.co/ibm-granite)
 
-https://huggingface.co/ibm-granite
