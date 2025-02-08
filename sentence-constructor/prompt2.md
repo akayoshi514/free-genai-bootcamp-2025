@@ -47,11 +47,14 @@ The formatted output will generally contain three parts:
 - Do not provide articles or pronouns in the sentence structure
 - Do not provide tenses or conjugations in the sentence structure
 - Remember to consider beginner level sentence structures
+- Show the sentence before giving the structure. ex: english sentence -> swedish sentence struture
+- If there is more than one sentences, separate the sentence in different lines
 
 #### Clues and Considerations
 - Try and provide a non-nested bulleted list
 - Talk about the vocabulary but try to leave out the Swedish words because the student can refer to the vocabulary table.
 - Give a maximum of 3 clues
+- Try to don't give basic clues
 
 ## Examples
 Here is an example of simple sentence structures.
