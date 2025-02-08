@@ -41,6 +41,14 @@ No change from prompt 3
 ### Clues and Considerations section
 Good: better advice with a different sentence
 
+## Fifth prompt 
+### Vocabulary Table section
+No change from prompt 3 and 4
+### Sentence Structure section
+give the english and sentence structure in 2 differents lines. Not bad but I prefer in one.
+### Clues and Considerations section
+Good: give 3 good advices by sentence. I like that.
+
 
 # Google Gemini 
 
@@ -80,6 +88,16 @@ No change from prompt 3
 Good: give another good advice
 Bad: give 2 clues of the examples
 
+## Fifth prompt 
+I abandon it due to the bad points and specially because the vocabulary table is no longer well formed.
+Bad: The 3 sections is repeated by english sentences
+### Vocabulary Table section
+Bad: The table does not show the swedish part. 
+### Sentence Structure section
+No change from prompt 3 and 4
+### Clues and Considerations section
+Good: give good advices
+
 
 # Le chat - Mistral
 
@@ -110,6 +128,7 @@ Good: give the two sentence on separate lines
 Bad: Give the example in the prompt
 
 ## Fourth prompt 
+I abandon it at this step due to basic clues
 ### Vocabulary Table section
 No change from prompt 3
 ### Sentence Structure section
@@ -118,4 +137,3 @@ No change from prompt 3
 Good: give advice as asked
 Bad: advices are sentence but seems too basic
 
-I abandon it at this step due to basic clues
