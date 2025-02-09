@@ -1,10 +1,22 @@
+I try to have GenAI not already show during the bootcamp videos.
+
 # HuggingChat
 
+## Overview
+Free version
+model: Qwen/Qwen2.5-72B-Instruct
+[Prompting Guides](https://huggingface.co/docs/transformers/tasks/prompting)
+
 ## First prompt 
-It doesn't answer the prompt so I abandon it.
+It doesn't answer the prompt. It shows only a black box and the chat is not available after that. I abandon it.
 
 
 # Microsoft Copilot
+
+## Overview
+Free version
+model: unknown but seem to be based on a GPT-4 version
+[Prompting Guides](https://support.microsoft.com/en-us/topic/learn-about-copilot-prompts-f6c3b467-f07c-4db1-ae54-ffac96184dd5)
 
 ## First prompt 
 ### Vocabulary Table section
@@ -74,6 +86,11 @@ Good: Good interpretation and encouraging to continue with more sentence.
 
 # Google Gemini 
 
+## Overview
+Free version
+model: Gemini 2.0 Flash
+[Prompting Guides](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr)
+
 ## First prompt 
 ### Vocabulary Table section
 Good: respect the format
@@ -125,6 +142,11 @@ I give a bad answer: "Jag ser en enhörning i morgon. Djuret gå på regnbågen.
 Bad: all the response is in Swedish
 
 # Le chat - Mistral
+
+## Overview
+Free version
+model: Mistral Large
+[Prompting Guides](https://docs.mistral.ai/guides/prompting_capabilities/)
 
 ## First prompt 
 ### Vocabulary Table section
