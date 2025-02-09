@@ -48,7 +48,29 @@ No change from prompt 3 and 4
 give the english and sentence structure in 2 differents lines. Not bad but I prefer in one.
 ### Clues and Considerations section
 Good: give 3 good advices by sentence. I like that.
+### Swedish answer
+I give a bad answer: "Jag ser en enhörning i morgon. Djuret gå på regnbågen. Det var underbart, eller hur?"
+Good: Encouraging response and give good advices to correct the sentences
+Bad: Give the correct response
 
+## Sixth prompt 
+### Vocabulary Table section
+No change from prompt 5
+### Sentence Structure section
+No change from prompt 5
+### Clues and Considerations section
+No change from prompt 5
+### Swedish answer
+I change the prompt few times to have a good answer structure for this prompt.
+
+I give a bad answer: "Jag ser en enhörning i morgon. Djuret gå på regnbågen. Det var underbart, eller hur?"
+Good: Encouraging response and give good advices to correct the sentences
+
+I give another bad answer: "Jag ser en enhörning i kvall. Djuret gå over regnbågen. Det var underbart, eller hur?"
+Good: Encouraging response and give good advices to correct the sentences. It asks to put the good acccents on the words.
+
+I give the good answer: "Jag ser en enhörning i kväll. Djuret gick över regnbågen. Det var underbart, eller hur?"
+Good: Good interpretation and encouraging to continue with more sentence.
 
 # Google Gemini 
 
@@ -88,8 +110,9 @@ No change from prompt 3
 Good: give another good advice
 Bad: give 2 clues of the examples
 
+
 ## Fifth prompt 
-I abandon it due to the bad points and specially because the vocabulary table is no longer well formed.
+I abandon it due to the numerous bad points below.
 Bad: The 3 sections is repeated by english sentences
 ### Vocabulary Table section
 Bad: The table does not show the swedish part. 
@@ -97,7 +120,9 @@ Bad: The table does not show the swedish part.
 No change from prompt 3 and 4
 ### Clues and Considerations section
 Good: give good advices
-
+### Swedish answer
+I give a bad answer: "Jag ser en enhörning i morgon. Djuret gå på regnbågen. Det var underbart, eller hur?"
+Bad: all the response is in Swedish
 
 # Le chat - Mistral
 
