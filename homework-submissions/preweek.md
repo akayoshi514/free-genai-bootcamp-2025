@@ -24,3 +24,6 @@ https://github.com/akayoshi514/free-genai-bootcamp-2025/tree/main/genai-architec
 - A good prompt requires a lot of iterations
 - I learn very interesting prompting techniques
 - At this moment, it will be hard for an AI assistant to replace a teacher
+
+### Thinking after submission 
+- I think separate the prompt in 2 will be more efficient. 1 for the english sentence submissions and 1 for swedish attempts.
