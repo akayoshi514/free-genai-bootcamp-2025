@@ -1,0 +1,640 @@
+openapi: 3.1.1
+info:
+  title: Lang portal API
+  version: 1.0.0
+  description: API for managing words, groups, and study sessions
+
+externalDocs:
+  description: Find more info here
+  url: https://docs.google.com/document/d/1KVDTDF4t8VtI69F5KMo67KoTBXgVhsd2O9hK-uPh2rA/edit?tab=t.nzd37qs3zbdj
+
+servers:
+  - url: https://{host}/{context-path}    
+    protocol: rest
+    description: Configurable server URL
+    variables:
+      host:
+        description: Host name of the service
+        default: localhost:8080
+      context-path:
+        description: Context path of the service
+        default: 
+
+tags:
+  - name: Words
+    description: Operations related to words
+  - name: Groups
+    description: Operations related to word groups
+  - name: Study Sessions
+    description: Operations related to study sessions
+  - name: Study Activities
+    description: Operations related to study activities
+  - name: Dashboard
+    description: Operations related to dashboard statistics
+  - name: Settings
+    description: Operations related to system settings and resets
+
+paths:
+  /api/dashboard/last_study_session:
+    get:
+      tags:
+        - Dashboard
+      summary: Returns information about the most recent study session
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LastStudySessionResponse'
+
+  /api/dashboard/study_progress:
+    get:
+      tags:
+        - Dashboard
+      summary: Returns study progress statistics
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudyProgressResponse'
+
+  /api/dashboard/quick-stats:
+    get:
+      tags:
+        - Dashboard
+      summary: Returns quick overview statistics
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QuickStatsResponse'
+
+  /api/study_activities/{id}:
+    get:
+      tags:
+        - Study Activities
+      summary: Get details of a specific study activity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudyActivityDetailResponse'
+
+  /api/study_activities/{id}/study_sessions:
+    get:
+      tags:
+        - Study Activities
+      summary: Get study sessions for a specific study activity
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudySessionsResponse'
+
+  /api/study_activities:
+    post:
+      tags:
+        - Study Activities
+      summary: Create a new study activity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStudyActivityRequest'
+      responses:
+        '201':
+          description: Study activity created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateStudyActivityResponse'
+
+  /api/words:
+    get:
+      tags:
+        - Words
+      summary: Get paginated list of words
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordsResponse'
+
+  /api/words/{id}:
+    get:
+      tags:
+        - Words
+      summary: Get details of a specific word
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordDetailResponse'
+
+  /api/groups:
+    get:
+      tags:
+        - Groups
+      summary: Get paginated list of groups
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupsResponse'
+
+  /api/groups/{id}:
+    get:
+      tags:
+        - Groups
+      summary: Get details of a specific group
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupDetailResponse'
+
+  /api/groups/{id}/words:
+    get:
+      tags:
+        - Groups
+      summary: Get words of a specific group
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupWordsResponse'
+
+  /api/groups/{id}/study_sessions:
+    get:
+      tags:
+        - Groups
+      summary: Get study sessions of a specific group
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GroupStudySessionsResponse'
+
+  /api/study_sessions:
+    get:
+      tags:
+        - Study Sessions
+      summary: Get paginated list of study sessions
+      parameters:
+        - name: page
+          in: query
+          description: Page number
+          required: false
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudySessionsResponse'
+
+  /api/study_sessions/{id}:
+    get:
+      tags:
+        - Study Sessions
+      summary: Get details of a specific study session
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudySessionDetailResponse'
+
+  /api/study_sessions/{id}/words:
+    get:
+      tags:
+        - Study Sessions
+      summary: Get words of a specific study session
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudySessionWordsResponse'
+
+  /api/reset_history:
+    post:
+      tags:
+        - Settings
+      summary: Reset study history
+      responses:
+        '200':
+          description: Study history reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResetHistoryResponse'
+
+  /api/full_reset:
+    post:
+      tags:
+        - Settings
+      summary: Fully reset the system
+      responses:
+        '200':
+          description: System fully reset
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FullResetResponse'
+
+  /api/study_sessions/{id}/words/{word_id}/review:
+    post:
+      tags:
+        - Study Sessions
+      summary: Log a review for a specific word in a study session
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: word_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LogReviewRequest'
+      responses:
+        '200':
+          description: Review logged
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LogReviewResponse'
+
+components:
+  schemas:
+    LastStudySessionResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        group_id:
+          type: integer
+        created_at:
+          type: string
+          format: date-time
+        study_activity_id:
+          type: integer
+        group_name:
+          type: string
+
+    StudyProgressResponse:
+      type: object
+      properties:
+        total_words_studied:
+          type: integer
+        total_available_words:
+          type: integer
+
+    QuickStatsResponse:
+      type: object
+      properties:
+        success_rate:
+          type: number
+          format: float
+        total_study_sessions:
+          type: integer
+        total_active_groups:
+          type: integer
+        study_streak_days:
+          type: integer
+
+    StudyActivityDetailResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        thumbnail_url:
+          type: string
+        description:
+          type: string
+
+    StudySessionsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudySessionItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    CreateStudyActivityRequest:
+      type: object
+      properties:
+        group_id:
+          type: integer
+        study_activity_id:
+          type: integer
+
+    CreateStudyActivityResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        group_id:
+          type: integer
+
+    WordsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    WordDetailResponse:
+      type: object
+      properties:
+        japanese:
+          type: string
+        romaji:
+          type: string
+        english:
+          type: string
+        stats:
+          $ref: '#/components/schemas/WordStats'
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupItem'
+
+    GroupsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/GroupItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    GroupDetailResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        stats:
+          $ref: '#/components/schemas/GroupStats'
+
+    GroupWordsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    GroupStudySessionsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudySessionItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    StudySessionDetailResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        activity_name:
+          type: string
+        group_name:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        review_items_count:
+          type: integer
+
+    StudySessionWordsResponse:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordItem'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    ResetHistoryResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+
+    FullResetResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+
+    LogReviewRequest:
+      type: object
+      properties:
+        correct:
+          type: boolean
+
+    LogReviewResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        word_id:
+          type: integer
+        study_session_id:
+          type: integer
+        correct:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+
+    StudySessionItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        activity_name:
+          type: string
+        group_name:
+          type: string
+        start_time:
+          type: string
+          format: date-time
+        end_time:
+          type: string
+          format: date-time
+        review_items_count:
+          type: integer
+
+    WordItem:
+      type: object
+      properties:
+        japanese:
+          type: string
+        romaji:
+          type: string
+        english:
+          type: string
+        correct_count:
+          type: integer
+        wrong_count:
+          type: integer
+
+    WordStats:
+      type: object
+      properties:
+        correct_count:
+          type: integer
+        wrong_count:
+          type: integer
+
+    GroupItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        word_count:
+          type: integer
+
+    GroupStats:
+      type: object
+      properties:
+        total_word_count:
+          type: integer
+
+    Pagination:
+      type: object
+      properties:
+        current_page:
+          type: integer
+        total_pages:
+          type: integer
+        total_items:
+          type: integer
+        items_per_page:
+          type: integer
